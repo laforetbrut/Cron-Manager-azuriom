@@ -1,0 +1,32 @@
+# Dépendances
+vendor/
+node_modules/
+
+# Fichiers de configuration
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.swp
+*.swo
+*~
+
+# Composer
+composer.lock
+composer.phar

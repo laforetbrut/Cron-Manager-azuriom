@@ -1,0 +1,16 @@
+{
+    "id": "cron",
+    "name": "Cron Manager",
+    "version": "1.0.0",
+    "description": "Gérez et sécurisez l'exécution des tâches planifiées Azuriom via des services externes (Cron-Job.org). Idéal pour les hébergements mutualisés sans accès SSH.",
+    "url": "https:\/\/azuriom.com",
+    "authors": [
+        "vyrriox"
+    ],
+    "azuriom_api": "1.2.0",
+    "providers": [
+        "\\Azuriom\\Plugin\\Cron\\Providers\\CronServiceProvider",
+        "\\Azuriom\\Plugin\\Cron\\Providers\\RouteServiceProvider"
+    ],
+    "apiId": 450
+}
