@@ -79,7 +79,7 @@ Retournez sur le panel admin du plugin. Le statut doit passer à **🟢 En Ligne
 ## 🆘 Support
 
 Pour toute question ou problème :
-- **Site Web** : [https://www.arcadia-echoes-of-power.fr](https://www.arcadia-echoes-of-power.fr)
+- **Minecraft serveur** : [https://www.arcadia-echoes-of-power.fr](https://www.arcadia-echoes-of-power.fr)
 - **Discord** : [https://arcadia-echoes-of-power.fr/discord](https://arcadia-echoes-of-power.fr/discord)
 
 ## 📄 Licence
@@ -88,7 +88,7 @@ Ce plugin est distribué sous licence MIT. Voir le fichier [LICENSE](LICENSE) po
 
 ## 👨‍💻 Auteur
 
-Développé par **vyrriox** pour la communauté Azuriom.
+Développé par **vyrriox**, **Brice6** pour la communauté Azuriom.
 
 ---
 

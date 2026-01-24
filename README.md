@@ -79,7 +79,7 @@ Return to the plugin's admin panel. The status should change to **🟢 Online** 
 ## 🆘 Support
 
 For any questions or issues:
-- **Website**: [https://www.arcadia-echoes-of-power.fr](https://www.arcadia-echoes-of-power.fr)
+- **Minecraft server*: [https://www.arcadia-echoes-of-power.fr](https://www.arcadia-echoes-of-power.fr)
 - **Discord**: [https://arcadia-echoes-of-power.fr/discord](https://arcadia-echoes-of-power.fr/discord)
 
 ## 📄 License
@@ -88,7 +88,7 @@ This plugin is distributed under the MIT license. See the [LICENSE](LICENSE) fil
 
 ## 👨‍💻 Author
 
-Developed by **vyrriox** for the Azuriom community.
+Developed by **vyrriox**, **Brice6** for the Azuriom community.
 
 ---
 
