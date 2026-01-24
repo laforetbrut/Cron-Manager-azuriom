@@ -5,13 +5,13 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Admin Routes
+| Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register admin routes for your plugin. These
+| Here is where you can register web routes for your plugin. These
 | routes are loaded by the RouteServiceProvider of your plugin within
-| a group which contains the "admin" middleware group and your plugin's
-| admin URL prefix (e.g. "/admin/cron").
+| a group which contains the "web" middleware group and your plugin name
+| as prefix. Now create something great!
 |
 */
 

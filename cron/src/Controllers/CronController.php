@@ -3,6 +3,7 @@
 namespace Azuriom\Plugin\Cron\Controllers;
 
 use Azuriom\Http\Controllers\Controller;
+use Azuriom\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
@@ -23,16 +24,21 @@ class CronController extends Controller
             return response()->json(['error' => 'Cron key not configured.'], 500);
         }
 
-        if ($request->input('key') !== $key) {
+        $bearer = $request->bearerToken();
+
+        if (! $bearer) {
+            $bearer = $request->input('key');
+        }
+
+        if (! hash_equals((string) $key, (string) $bearer)) {
             return response()->json(['error' => 'Invalid key.'], 403);
         }
 
         try {
-            // Exécuter schedule:run
             Artisan::call('schedule:run');
             $output = Artisan::output();
 
-            \Azuriom\Models\Setting::updateSettings('cron.last_executed_at', now()->toIso8601String());
+            Setting::updateSettings('cron.last_executed_at', now()->toIso8601String());
 
             return response()->json([
                 'success' => true,

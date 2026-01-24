@@ -23,7 +23,7 @@ class SettingController extends Controller
             Setting::updateSettings('cron.key', $key);
         }
 
-        $url = route('cron.execute', ['key' => $key]);
+        $url = route('cron.execute');
 
         return view('cron::admin.index', [
             'key' => $key,

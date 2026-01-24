@@ -6,7 +6,6 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <h5 class="card-title">{{ trans('cron::messages.admin.title') }}</h5>
-
             @php
                 $lastDate = $lastExecution ? \Carbon\Carbon::parse($lastExecution) : null;
                 $isOnline = $lastDate && $lastDate->diffInMinutes() < 10;
@@ -14,9 +13,9 @@
 
             <div class="card shadow mb-4">
                 <div class="card-body text-center">
-                    <h5 class="text-{{ $isOnline ? 'success' : ($lastDate ? 'danger' : 'warning') }} mb-1">
+                    <h5 class="d-flex gap-2 align-items-center justify-content-center text-{{ $isOnline ? 'success' : ($lastDate ? 'danger' : 'warning') }} mb-1">
                         <i
-                            class="fas fa-{{ $isOnline ? 'check-circle' : ($lastDate ? 'times-circle' : 'exclamation-triangle') }} fa-3x mb-3"></i><br>
+                            class="bi bi-{{ $isOnline ? 'check-circle' : ($lastDate ? 'clock-history' : 'exclamation-triangle') }} fs-5"></i>
                         {{ $isOnline ? trans('cron::messages.admin.status_online') : ($lastDate ? trans('cron::messages.admin.status_offline') : trans('cron::messages.admin.never')) }}
                     </h5>
 
@@ -33,7 +32,7 @@
             </div>
 
             <div class="alert alert-info" role="alert">
-                <i class="fas fa-info-circle"></i> {{ trans('cron::messages.admin.description') }}
+                <i class="bi bi-info-circle"></i> {{ trans('cron::messages.admin.description') }}
             </div>
 
             <div class="form-group">
@@ -41,12 +40,24 @@
                 <div class="input-group">
                     <input type="text" class="form-control" id="cron-url" value="{{ $url }}" readonly>
                     <div class="input-group-append">
-                        <button class="btn btn-info text-white" type="button" onclick="copyToClipboard()">
-                            <i class="fas fa-copy"></i> {{ trans('cron::messages.admin.copy') }}
+                        <button class="btn btn-primary" type="button" onclick="copyToClipboard('cron-url')">
+                            <i class="bi bi-link"></i> {{ trans('cron::messages.admin.copy') }}
                         </button>
                     </div>
                 </div>
-                <small class="form-text text-muted">{{ trans('cron::messages.admin.url_help') }}</small>
+            </div>
+
+            <div class="form-group">
+                <label for="cron-key">{{ trans('cron::messages.admin.secret_key') }}</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="cron-key" value="{{ $key }}" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-warning" type="button" onclick="copyToClipboard('cron-key')">
+                            <i class="bi bi-key"></i> {{ trans('cron::messages.admin.copy') }}
+                        </button>
+                    </div>
+                </div>
+                <small class="form-text text-muted">{{ trans('cron::messages.admin.secret_key_desc') }}</small>
             </div>
 
             <form action="{{ route('cron.admin.regenerate') }}" method="POST"
@@ -54,7 +65,7 @@
                 @csrf
 
                 <button type="submit" class="btn btn-danger">
-                    <i class="fas fa-sync"></i> {{ trans('cron::messages.admin.regenerate_btn') }}
+                    <i class="bi bi-arrow-clockwise"></i> {{ trans('cron::messages.admin.regenerate_btn') }}
                 </button>
             </form>
         </div>
@@ -80,7 +91,15 @@
                 <li>
                     {{ trans('cron::messages.tutorial.step4') }}
                 </li>
+                <li>
+                    {{ trans('cron::messages.tutorial.step5') }}
+                </li>
+                <li>
+                    {{ trans('cron::messages.tutorial.step6') }}
+                </li>
             </ol>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7q2Rd9w_FUI?si=XFEd1Wdrqno23pN7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
             <div class="alert alert-warning">
                 <i class="fas fa-exclamation-triangle"></i> {{ trans('cron::messages.tutorial.warning') }}
@@ -88,16 +107,6 @@
         </div>
     </div>
 
-    <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("cron-url");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
-            document.execCommand("copy");
-
-            // Optional: Show a tooltip or toast
-        }
-    </script>
     <div class="text-center mt-4">
         <a href="https://www.arcadia-echoes-of-power.fr" target="_blank" class="text-muted mx-2">
             <i class="fas fa-globe"></i> Site Web
@@ -107,3 +116,28 @@
         </a>
     </div>
 @endsection
+
+
+@push('footer-scripts')
+    <script>
+        const URL = document.getElementById('cron-url')
+        const BEARER = document.getElementById('cron-key')
+
+        function copyToClipboard(id) {
+            var copyText = document.getElementById(id);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+
+            if (id === 'cron-key') {
+                var token = 'Bearer ' + copyText.value;
+                navigator.clipboard.writeText(token);
+            }
+        }
+
+        copyToClipboard(URL)
+        copyToClipboard(BEARER)
+
+
+    </script>
+@endpush
