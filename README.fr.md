@@ -45,20 +45,34 @@ Ce plugin expose une **URL sécurisée** qui permet à un service externe d'exé
 
 Rendez-vous dans **Extensions > Cron Manager**
 
-### 2. Copier l'URL
+### 2. Copier l'URL et la Clé Secrète
 
-Une URL unique vous est fournie, exemple :
+Dans le panel admin, vous trouverez l'URL d'exécution et votre clé secrète.
+
+**Exemple d'URL :**
 ```
-https://votre-site.fr/cron/execute?key=VOTRE_CLE_SECRETE
+https://votre-site.fr/cron/execute
 ```
 
 ### 3. Configurer Cron-Job.org (GRATUIT)
 
-1. Créez un compte sur [console.cron-job.org](https://console.cron-job.org)
-2. Créez un nouveau cron job
-3. Collez l'URL copiée
-4. Configurez l'intervalle : **Toutes les minutes** (`* * * * *`)
-5. Activez le job
+Suivez ces étapes pour configurer l'exécution automatique de vos tâches Azuriom via un service externe gratuit.
+
+1. Créez un compte ou connectez-vous sur [console.cron-job.org](https://console.cron-job.org).
+2. Cliquez sur **"Create cronjob"**.
+3. Dans l'onglet **"COMMON"** :
+   - **Titre** : `Cron job`
+   - **URL** : Collez l'URL d'exécution affichée dans votre panel admin.
+   - **Calendrier d'exécution** : Sélectionnez **"Chaque 1 minute"**.
+4. Dans l'onglet **"AVANCÉ"** :
+   - Dans la partie **"En-têtes"**, cliquez sur **"+ AJOUTER"** :
+     - **Clé** : `Authorization`
+     - **Valeur** : `Bearer ` (avec un espace à la fin) suivi de votre **Clé secrète**.
+   - Dans la partie **"Avancé"** (en bas) :
+     - **Méthode de demande** : Sélectionnez **POST**.
+5. Cliquez sur **"CRÉER UN CRONJOB"** (ou le bouton de sauvegarde) pour finaliser.
+
+**Vidéo tutoriel :** [https://www.youtube.com/watch?v=7q2Rd9w_FUI](https://www.youtube.com/watch?v=7q2Rd9w_FUI)
 
 ### 4. Vérification
 
