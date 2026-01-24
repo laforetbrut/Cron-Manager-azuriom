@@ -40,7 +40,6 @@ class CronServiceProvider extends BasePluginServiceProvider
      * @var array
      */
     protected array $policies = [
-        // User::class => UserPolicy::class,
     ];
 
     /**
@@ -60,15 +59,19 @@ class CronServiceProvider extends BasePluginServiceProvider
      */
     public function boot()
     {
-        $this->registerPermissions();
-
         $this->loadViews();
 
         $this->loadTranslations();
 
-        // $this->loadRoutes(); // Managed by RouteServiceProvider
+        $this->loadMigrations();
+
+        $this->registerRouteDescriptions();
 
         $this->registerAdminNavigation();
+
+        $this->registerUserNavigation();
+
+        $this->registerPermissions();
     }
 
     protected function registerPermissions()
@@ -102,7 +105,7 @@ class CronServiceProvider extends BasePluginServiceProvider
                 'name' => trans('cron::messages.admin.title'),
                 'icon' => 'bi bi-clock',
                 'route' => 'cron.admin.index',
-                // 'permission' => 'cron.admin',
+                 'permission' => 'cron.admin',
             ],
         ];
     }

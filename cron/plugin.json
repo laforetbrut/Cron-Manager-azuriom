@@ -11,6 +11,5 @@
     "providers": [
         "\\Azuriom\\Plugin\\Cron\\Providers\\CronServiceProvider",
         "\\Azuriom\\Plugin\\Cron\\Providers\\RouteServiceProvider"
-    ],
-    "apiId": 450
+    ]
 }
