@@ -93,7 +93,7 @@ Return to the plugin's admin panel. The status should change to **🟢 Online** 
 ## 🆘 Support
 
 For any questions or issues:
-- **Minecraft server*: [https://www.arcadia-echoes-of-power.fr](https://www.arcadia-echoes-of-power.fr)
+- **Minecraft server**: [https://www.arcadia-echoes-of-power.fr](https://www.arcadia-echoes-of-power.fr)
 - **Discord**: [https://arcadia-echoes-of-power.fr/discord](https://arcadia-echoes-of-power.fr/discord)
 
 ## 📄 License
