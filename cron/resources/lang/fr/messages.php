@@ -29,6 +29,6 @@ return [
         'step4' => 'Configurez la fréquence sur "Every 1 minute" (Toutes les minutes) et sauvegardez.',
         'step5' => 'Dans l\'onglet "Avancé, dans la partie "En-tête", mettez en clé "Authorization" et en valeur "Bearer" en préfix suivi du "Secret key" ci-dessus',
         'step6' => 'Dans l\'onglet "Avancé, dans la partie "Avancé", dans la "Méthode de demande" mettre POST',
-        'warning' => 'Si vous régénérez votre clé, n\'oubliez pas de mettre à jour l\'URL dans votre gestionnaire de tâches cron.',
+        'warning' => 'Si vous régénérez votre clé, n\'oubliez pas de mettre à jour votre Bearer token dans votre gestionnaire de tâches cron.',
     ],
 ];

@@ -28,6 +28,6 @@ return [
         'step4' => 'Set the schedule to "Every 1 minute" and save.',
         'step5' => 'In the "Advanced" tab, in the "Headers" section, set the "Authorization" key to "Bearer" followed by the "Secret key" above.',
         'step6' => 'In the "Advanced" tab, in the "Advanced" section, in the "Request method" field, set it to "POST".',
-        'warning' => 'If you regenerate your key, do not forget to update the URL in your cron job manager.',
+        'warning' => 'If you regenerate your key, do not forget to update your Bearer token in your cron job manager.',
     ],
 ];

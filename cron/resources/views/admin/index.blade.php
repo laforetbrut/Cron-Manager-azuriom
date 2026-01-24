@@ -13,7 +13,8 @@
 
             <div class="card shadow mb-4">
                 <div class="card-body text-center">
-                    <h5 class="d-flex gap-2 align-items-center justify-content-center text-{{ $isOnline ? 'success' : ($lastDate ? 'danger' : 'warning') }} mb-1">
+                    <h5
+                        class="d-flex gap-2 align-items-center justify-content-center text-{{ $isOnline ? 'success' : ($lastDate ? 'danger' : 'warning') }} mb-1">
                         <i
                             class="bi bi-{{ $isOnline ? 'check-circle' : ($lastDate ? 'clock-history' : 'exclamation-triangle') }} fs-5"></i>
                         {{ $isOnline ? trans('cron::messages.admin.status_online') : ($lastDate ? trans('cron::messages.admin.status_offline') : trans('cron::messages.admin.never')) }}
@@ -99,7 +100,10 @@
                 </li>
             </ol>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/7q2Rd9w_FUI?si=XFEd1Wdrqno23pN7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7q2Rd9w_FUI?si=XFEd1Wdrqno23pN7"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
             <div class="alert alert-warning">
                 <i class="fas fa-exclamation-triangle"></i> {{ trans('cron::messages.tutorial.warning') }}
@@ -108,11 +112,11 @@
     </div>
 
     <div class="text-center mt-4">
-        <a href="https://www.arcadia-echoes-of-power.fr" target="_blank" class="text-muted mx-2">
-            <i class="fas fa-globe"></i> Site Web
-        </a>
-        <a href="https://arcadia-echoes-of-power.fr/discord" target="_blank" class="text-muted mx-2">
+        <a href="https://discord.com/invite/xjF8Rtzyd4" target="_blank" class="text-muted mx-2">
             <i class="fab fa-discord"></i> Discord
+        </a>
+        <a href="https://www.arcadia-echoes-of-power.fr/" target="_blank" class="text-muted mx-2 text-decoration-none">
+            <i class="fas fa-server"></i> Arcadia: Echoes of Power (Minecraft)
         </a>
     </div>
 @endsection
