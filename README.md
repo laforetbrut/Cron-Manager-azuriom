@@ -4,9 +4,9 @@
 
 ## 📋 Description
 
-**Cron Manager** is an Azuriom plugin that allows you to manage and secure the execution of scheduled tasks (cron) for your site via free external services like [Cron-Job.org](https://console.cron-job.org).
+**Cron Manager** is an Azuriom plugin that allows you to manage and secure the execution of scheduled tasks (cron) and email queue processing for your site via free external services like [Cron-Job.org](https://console.cron-job.org).
 
-This plugin was created to solve a common problem: **the absence of native cron on shared hosting**. Without SSH access or server scheduled tasks, it becomes impossible to automatically execute Laravel commands like `schedule:run`, which are essential for Azuriom to function properly.
+This plugin was created to solve a common problem: **the absence of native cron on shared hosting**. Without SSH access or server scheduled tasks, it becomes impossible to automatically execute Laravel commands like `schedule:run` or `queue:work`, which are essential for Azuriom to function properly.
 
 ## 🎯 Why this plugin?
 
@@ -17,20 +17,23 @@ On shared hosting, you generally don't have:
 - Ability to configure cron tasks
 - Server control
 
-However, Azuriom requires regular execution of `php artisan schedule:run` to:
-- Execute scheduled tasks
+However, Azuriom requires regular execution of:
+- `php artisan schedule:run` to execute scheduled tasks
+- `php artisan queue:work` to process email queue
 
 ### Solution
 
-This plugin exposes a **secure URL** that allows an external service to execute your cron tasks for you. The URL is protected by a unique secret key, ensuring that only authorized requests can trigger execution.
+This plugin exposes **secure URLs** that allow an external service to execute your cron tasks and process email queues for you. The URLs are protected by a unique secret key, ensuring that only authorized requests can trigger execution.
 
 ## ✨ Features
 
-- ✅ **Secure URL**: Unique and regenerable authentication key
-- ✅ **Real-time monitoring**: Visual cron status indicator (Online / Offline)
+- ✅ **Cron Manager**: Execute scheduled tasks automatically
+- ✅ **Queue Manager**: Process email queue automatically
+- ✅ **Secure URLs**: Unique and regenerable authentication key
+- ✅ **Real-time monitoring**: Visual status indicators (Online / Offline)
 - ✅ **Timestamp**: Displays the last execution with a readable timestamp
 - ✅ **Integrated tutorial**: Step-by-step guide to configure Cron-Job.org
-- ✅ **Maintenance compatible**: The cron works even if the site is in maintenance mode
+- ✅ **Maintenance compatible**: Works even if the site is in maintenance mode
 - ✅ **Modern admin interface**: Clean design with colored status badges
 
 ## 📦 Installation
@@ -74,7 +77,19 @@ Follow these steps to configure the automatic execution of your Azuriom tasks vi
 
 **Tutorial video:** [https://www.youtube.com/watch?v=7q2Rd9w_FUI](https://www.youtube.com/watch?v=7q2Rd9w_FUI)
 
-### 4. Verification
+### 4. Configure Queue Manager (for emails)
+
+If you want to automatically process email queues:
+
+1. In the same admin panel, find the **Queue Manager** section below the Cron Manager
+2. Copy the **Queue URL** (e.g., `https://your-site.com/cron/queue/execute`)
+3. Create a **second cron job** on Cron-Job.org with the same configuration as step 3, but:
+   - Use the **Queue URL** instead
+   - Set the schedule to **Every 5 minutes** (or according to your needs)
+   - Use the **same Bearer token** for authentication
+4. This will process all pending emails automatically
+
+### 5. Verification
 
 Return to the plugin's admin panel. The status should change to **🟢 Online** after the first successful execution.
 
@@ -86,8 +101,8 @@ Return to the plugin's admin panel. The status should change to **🟢 Online** 
 
 ## 🌐 Compatibility
 
-- **Azuriom**: 1.1.0+
-- **PHP**: 7.4+
+- **Azuriom**: 1.2.0+
+- **PHP**: 8.0+
 - **Hosting**: Shared, VPS, Dedicated
 
 ## 🆘 Support

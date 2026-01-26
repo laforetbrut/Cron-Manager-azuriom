@@ -19,6 +19,18 @@ return [
         'secret_key' => 'Secret Key (Bearer token)',
         'secret_key_desc' => 'Copy this key into the "Header" or "Authorization" field of your cron job manager.',
     ],
+    'queue' => [
+        'title' => 'Queue Manager',
+        'description' => 'This manager allows you to automatically execute email queue processing via external cron jobs.',
+        'url_label' => 'Queue URL',
+        'status' => 'Queue Status',
+        'status_online' => 'Online',
+        'status_offline' => 'Offline',
+        'last_execution' => 'Last execution: :time',
+        'never' => 'Never',
+        'secret_key' => 'Secret Key (Bearer token)',
+        'secret_key_desc' => 'Use the same key as for the Cron Manager above.',
+    ],
     'tutorial' => [
         'title' => 'Tutorial: Configure Cron-Job.org',
         'introduction' => 'Follow these steps to configure automatic execution of your Azuriom tasks via a free external service.',
@@ -29,5 +41,14 @@ return [
         'step5' => 'In the "Advanced" tab, in the "Headers" section, set the "Authorization" key to "Bearer" followed by the "Secret key" above.',
         'step6' => 'In the "Advanced" tab, in the "Advanced" section, in the "Request method" field, set it to "POST".',
         'warning' => 'If you regenerate your key, do not forget to update your Bearer token in your cron job manager.',
+    ],
+    'queue_tutorial' => [
+        'title' => 'Tutorial: Configure Queue Worker',
+        'introduction' => 'Configure automatic execution of the queue worker to process pending emails.',
+        'step1' => 'Use the same configuration as for the Cron Manager above.',
+        'step2' => 'Create a new cron job with the Queue URL above.',
+        'step3' => 'Use the same secret key (Bearer token) for authentication.',
+        'step4' => 'Configure the frequency according to your needs (e.g., every 5 minutes).',
+        'note' => 'The queue worker will automatically process all pending emails and then stop.',
     ],
 ];

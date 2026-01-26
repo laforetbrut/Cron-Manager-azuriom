@@ -1,7 +1,7 @@
 {
     "id": "cron",
     "name": "Cron Manager",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Gérez et sécurisez l'exécution des tâches planifiées Azuriom via des services externes (Cron-Job.org). Idéal pour les hébergements mutualisés sans accès SSH.",
     "url": "https:\/\/azuriom.com",
     "authors": [

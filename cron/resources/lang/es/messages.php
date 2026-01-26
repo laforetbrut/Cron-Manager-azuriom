@@ -19,6 +19,18 @@ return [
         'secret_key' => 'Clave secreta (Bearer token)',
         'secret_key_desc' => 'Copie esta clave en el campo "Header" o "Authorization" de su gestor de tareas cron.',
     ],
+    'queue' => [
+        'title' => 'Gestor de Cola',
+        'description' => 'Este gestor le permite ejecutar automáticamente el procesamiento de la cola de correos electrónicos a través de tareas cron externas.',
+        'url_label' => 'URL de Cola',
+        'status' => 'Estado de la Cola',
+        'status_online' => 'En línea',
+        'status_offline' => 'Fuera de línea',
+        'last_execution' => 'Última ejecución: :time',
+        'never' => 'Nunca',
+        'secret_key' => 'Clave secreta (Bearer token)',
+        'secret_key_desc' => 'Utilice la misma clave que para el Gestor de Cron anterior.',
+    ],
     'tutorial' => [
         'title' => 'Tutorial: Configurar Cron-Job.org',
         'introduction' => 'Siga estos pasos para configurar la ejecución automática de sus tareas de Azuriom a través de un servicio externo gratuito.',
@@ -29,5 +41,14 @@ return [
         'step5' => 'En la pestaña "Advanced", en la sección "Headers", establezca la clave "Authorization" como "Bearer" seguida de la "Secret key" anterior.',
         'step6' => 'En la pestaña "Advanced", en la sección "Advanced", en el campo "Request method", establézcalo en "POST".',
         'warning' => 'Si regenera su clave, no olvide actualizar su Bearer token en su gestor de tareas cron.',
+    ],
+    'queue_tutorial' => [
+        'title' => 'Tutorial: Configurar Queue Worker',
+        'introduction' => 'Configure la ejecución automática del queue worker para procesar correos electrónicos pendientes.',
+        'step1' => 'Utilice la misma configuración que para el Gestor de Cron anterior.',
+        'step2' => 'Cree una nueva tarea cron con la URL de Cola anterior.',
+        'step3' => 'Utilice la misma clave secreta (Bearer token) para la autenticación.',
+        'step4' => 'Configure la frecuencia según sus necesidades (por ejemplo, cada 5 minutos).',
+        'note' => 'El queue worker procesará automáticamente todos los correos pendientes y luego se detendrá.',
     ],
 ];

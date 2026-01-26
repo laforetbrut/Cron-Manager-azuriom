@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/execute', [CronController::class, 'handle'])->name('execute');
+Route::post('/queue/execute', [CronController::class, 'handleQueue'])->name('queue.execute');

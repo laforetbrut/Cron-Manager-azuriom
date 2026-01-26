@@ -24,11 +24,14 @@ class SettingController extends Controller
         }
 
         $url = route('cron.execute');
+        $queueUrl = route('cron.queue.execute');
 
         return view('cron::admin.index', [
             'key' => $key,
             'url' => $url,
+            'queueUrl' => $queueUrl,
             'lastExecution' => setting('cron.last_executed_at'),
+            'lastQueueExecution' => setting('queue.last_executed_at'),
         ]);
     }
 

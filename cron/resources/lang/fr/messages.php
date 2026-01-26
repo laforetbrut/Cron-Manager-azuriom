@@ -20,6 +20,18 @@ return [
         'secret_key_desc' => 'Copiez cette clé dans le champ "Header" ou "Authorization" de votre gestionnaire de cron.
 ',
     ],
+    'queue' => [
+        'title' => 'Gestionnaire de File d\'Attente',
+        'description' => 'Ce gestionnaire permet d\'exécuter automatiquement le traitement de la file d\'attente des emails via des tâches cron externes.',
+        'url_label' => 'URL de Queue',
+        'status' => 'Statut de la Queue',
+        'status_online' => 'En Ligne',
+        'status_offline' => 'Hors Ligne',
+        'last_execution' => 'Dernière exécution : :time',
+        'never' => 'Jamais',
+        'secret_key' => 'Clé secrète (Bearer token)',
+        'secret_key_desc' => 'Utilisez la même clé que pour le Cron Manager ci-dessus.',
+    ],
     'tutorial' => [
         'title' => 'Tutoriel : Configurer Cron-Job.org',
         'introduction' => 'Suivez ces étapes pour configurer l\'exécution automatique de vos tâches Azuriom via un service externe gratuit.',
@@ -30,5 +42,14 @@ return [
         'step5' => 'Dans l\'onglet "Avancé, dans la partie "En-tête", mettez en clé "Authorization" et en valeur "Bearer" en préfix suivi du "Secret key" ci-dessus',
         'step6' => 'Dans l\'onglet "Avancé, dans la partie "Avancé", dans la "Méthode de demande" mettre POST',
         'warning' => 'Si vous régénérez votre clé, n\'oubliez pas de mettre à jour votre Bearer token dans votre gestionnaire de tâches cron.',
+    ],
+    'queue_tutorial' => [
+        'title' => 'Tutoriel : Configurer le Queue Worker',
+        'introduction' => 'Configurez l\'exécution automatique du queue worker pour traiter les emails en attente.',
+        'step1' => 'Utilisez la même configuration que pour le Cron Manager ci-dessus.',
+        'step2' => 'Créez une nouvelle tâche cron avec l\'URL de Queue ci-dessus.',
+        'step3' => 'Utilisez la même clé secrète (Bearer token) pour l\'authentification.',
+        'step4' => 'Configurez la fréquence selon vos besoins (ex: toutes les 5 minutes).',
+        'note' => 'Le queue worker traitera automatiquement tous les emails en attente puis s\'arrêtera.',
     ],
 ];

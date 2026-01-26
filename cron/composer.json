@@ -2,7 +2,7 @@
     "name": "azuriom-plugins/cron",
     "description": "Un plugin pour sécuriser et gérer les tâches Cron externes sur Azuriom.",
     "type": "azuriom-plugin",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "MIT",
     "autoload": {
         "psr-4": {

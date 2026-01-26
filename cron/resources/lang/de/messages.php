@@ -19,6 +19,18 @@ return [
         'secret_key' => 'Geheimschlüssel (Bearer token)',
         'secret_key_desc' => 'Kopieren Sie diesen Schlüssel in das Feld „Header“ oder „Authorization“ Ihres Cron-Job-Managers.',
     ],
+    'queue' => [
+        'title' => 'Warteschlangen-Manager',
+        'description' => 'Dieser Manager ermöglicht es Ihnen, die Verarbeitung der E-Mail-Warteschlange automatisch über externe Cron-Jobs auszuführen.',
+        'url_label' => 'Warteschlangen-URL',
+        'status' => 'Warteschlangen-Status',
+        'status_online' => 'Online',
+        'status_offline' => 'Offline',
+        'last_execution' => 'Letzte Ausführung: :time',
+        'never' => 'Nie',
+        'secret_key' => 'Geheimschlüssel (Bearer token)',
+        'secret_key_desc' => 'Verwenden Sie denselben Schlüssel wie für den Cron-Manager oben.',
+    ],
     'tutorial' => [
         'title' => 'Tutorial: Cron-Job.org konfigurieren',
         'introduction' => 'Folgen Sie diesen Schritten, um die automatische Ausführung Ihrer Azuriom-Aufgaben über einen kostenlosen externen Dienst zu konfigurieren.',
@@ -29,5 +41,14 @@ return [
         'step5' => 'Setzen Sie im Reiter „Advanced“ im Abschnitt „Headers“ den Schlüssel „Authorization“ auf „Bearer“, gefolgt vom oben genannten „Secret key“.',
         'step6' => 'Stellen Sie im Reiter „Advanced“ im Abschnitt „Advanced“ das Feld „Request method“ auf „POST“.',
         'warning' => 'Wenn Sie Ihren Schlüssel regenerieren, vergessen Sie nicht, Ihr Bearer token in Ihrem Cron-Job-Manager zu aktualisieren.',
+    ],
+    'queue_tutorial' => [
+        'title' => 'Tutorial: Queue Worker konfigurieren',
+        'introduction' => 'Konfigurieren Sie die automatische Ausführung des Queue Workers, um ausstehende E-Mails zu verarbeiten.',
+        'step1' => 'Verwenden Sie dieselbe Konfiguration wie für den Cron-Manager oben.',
+        'step2' => 'Erstellen Sie einen neuen Cron-Job mit der obigen Warteschlangen-URL.',
+        'step3' => 'Verwenden Sie denselben Geheimschlüssel (Bearer token) für die Authentifizierung.',
+        'step4' => 'Konfigurieren Sie die Häufigkeit nach Ihren Bedürfnissen (z. B. alle 5 Minuten).',
+        'note' => 'Der Queue Worker verarbeitet automatisch alle ausstehenden E-Mails und stoppt dann.',
     ],
 ];

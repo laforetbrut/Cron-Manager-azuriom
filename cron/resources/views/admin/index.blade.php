@@ -73,6 +73,86 @@
     </div>
 
     <div class="card shadow mb-4">
+        <div class="card-body">
+            <h5 class="card-title">{{ trans('cron::messages.queue.title') }}</h5>
+            @php
+                $lastQueueDate = $lastQueueExecution ? \Carbon\Carbon::parse($lastQueueExecution) : null;
+                $isQueueOnline = $lastQueueDate && $lastQueueDate->diffInMinutes() < 10;
+            @endphp
+
+            <div class="card shadow mb-4">
+                <div class="card-body text-center">
+                    <h5
+                        class="d-flex gap-2 align-items-center justify-content-center text-{{ $isQueueOnline ? 'success' : ($lastQueueDate ? 'danger' : 'warning') }} mb-1">
+                        <i
+                            class="bi bi-{{ $isQueueOnline ? 'check-circle' : ($lastQueueDate ? 'clock-history' : 'exclamation-triangle') }} fs-5"></i>
+                        {{ $isQueueOnline ? trans('cron::messages.queue.status_online') : ($lastQueueDate ? trans('cron::messages.queue.status_offline') : trans('cron::messages.queue.never')) }}
+                    </h5>
+
+                    @if($lastQueueDate)
+                        <p class="text-muted mb-0">
+                            {{ trans('cron::messages.queue.last_execution', ['time' => $lastQueueDate->diffForHumans()]) }}
+                        </p>
+                    @else
+                        <p class="text-muted mb-0">
+                            {{ trans('cron::messages.queue.status') }} : {{ trans('cron::messages.queue.never') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+                <i class="bi bi-info-circle"></i> {{ trans('cron::messages.queue.description') }}
+            </div>
+
+            <div class="form-group">
+                <label for="queue-url">{{ trans('cron::messages.queue.url_label') }}</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="queue-url" value="{{ $queueUrl }}" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" onclick="copyToClipboard('queue-url')">
+                            <i class="bi bi-link"></i> {{ trans('cron::messages.admin.copy') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="queue-key">{{ trans('cron::messages.queue.secret_key') }}</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="queue-key" value="{{ $key }}" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-warning" type="button" onclick="copyToClipboard('queue-key')">
+                            <i class="bi bi-key"></i> {{ trans('cron::messages.admin.copy') }}
+                        </button>
+                    </div>
+                </div>
+                <small class="form-text text-muted">{{ trans('cron::messages.queue.secret_key_desc') }}</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{ trans('cron::messages.queue_tutorial.title') }}</h6>
+        </div>
+        <div class="card-body">
+            <p>{{ trans('cron::messages.queue_tutorial.introduction') }}</p>
+
+            <ol>
+                <li>{{ trans('cron::messages.queue_tutorial.step1') }}</li>
+                <li>{{ trans('cron::messages.queue_tutorial.step2') }}</li>
+                <li>{{ trans('cron::messages.queue_tutorial.step3') }}</li>
+                <li>{{ trans('cron::messages.queue_tutorial.step4') }}</li>
+            </ol>
+
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> {{ trans('cron::messages.queue_tutorial.note') }}
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">{{ trans('cron::messages.tutorial.title') }}</h6>
         </div>
