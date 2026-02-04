@@ -101,8 +101,8 @@ Retournez sur le panel admin du plugin. Le statut doit passer à **🟢 En Ligne
 
 ## 🌐 Compatibilité
 
-- **Azuriom** : 1.1.0+
-- **PHP** : 7.4+
+- **Azuriom** : 1.2.0+
+- **PHP** : 8.0+
 - **Hébergement** : Mutualisé, VPS, Dédié
 
 ## 🆘 Support
